@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 # Author: Bradley Pratt
 # Created: 01/06/2021
-# Last Edit: 01/06/2021
+# Last Edit: 01/07/2021
 
 # ########GLOBAL VARIABLES##########
 welcomeMessage = "Welcome to my python-based calculator! Current performable operations: ADD, SUBTRACT, MULTIPLY, " \
                  "DIVIDE. "
 operators = {'+', '-', '*', '/'}
-result = 0
 
 
 # ########MAIN FUNCTION##########
@@ -23,7 +22,7 @@ def main():
     num2 = input("Enter your second operand: ")
     num2 = validateNum(num2)
 
-    performOperation(num1, num2, op)
+    result = performOperation(num1, num2, op)
 
     print(num1, op, num2, "=", result, sep=" ")
 
@@ -47,15 +46,14 @@ def validateOp(operator):
 
 
 def performOperation(num1, num2, op):
-    global result
     if op == "+":
-        result = add(num1, num2)
+        return add(num1, num2)
     elif op == "-":
-        result = add(num1, -num2)
+        return add(num1, -num2)
     elif op == "*":
-        result = multiply(num1, num2)
+        return multiply(num1, num2)
     else:
-        result = multiply(num1, 1/num2)
+        return multiply(num1, 1/num2)
 
 
 def add(first, second):
@@ -67,5 +65,6 @@ def multiply(first, second):
 
 
 # Call the main function
-main()
+if __name__ == "__main__":
+    main()
 
