@@ -35,7 +35,9 @@ def main():
     colCount = 0
     print("A complete list of %s's moves: " % pokemon)
     for item in pokeapi["moves"]:
-        print("{:>20}".format(item["move"]["name"]), end="")
+        if colCount == 0:
+            print("\t", end="")
+        print("{:<20}".format(item["move"]["name"]), end="")
         colCount += 1
 
         if colCount == 5:
